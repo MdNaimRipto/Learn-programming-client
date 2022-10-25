@@ -111,7 +111,7 @@ const Nav = () => {
                     />
                 </li>
             </Navbar.Collapse>
-        </Navbar>
+        </Navbar >
 
     );
 };

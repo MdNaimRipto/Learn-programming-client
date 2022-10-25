@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import { useContext } from 'react';
@@ -7,6 +7,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
     const { googleLogin, githubLogin, loginWithEmailAndPassword } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleLoginWithEmailAndPassword = (event) => {
         event.preventDefault()
@@ -18,6 +19,7 @@ const Login = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
+                navigate("/")
             })
             .catch(error => console.error(error))
     }
@@ -27,6 +29,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate("/")
             })
             .catch(error => console.error(error))
     }
@@ -35,6 +38,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate("/")
             })
             .catch(error => console.error(error))
     }
