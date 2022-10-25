@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from "../../../Assets/logo.png"
 import DarkModeToggle from "react-dark-mode-toggle";
 import { Avatar, Dropdown, Navbar, Tooltip } from "flowbite-react";
-
+import { FaUser } from "react-icons/fa"
 import { AuthContext } from "../../../AuthProvider/AuthProvider"
 
 
@@ -32,20 +32,23 @@ const Nav = () => {
             </Navbar.Brand>
             <div className="flex justify-between md:order-2 w-2/6 md:w-[12%]">
                 {
-                    !user?.name ?
+                    !user?.uid ?
                         <Link to="/login">
                             <button className="bg-red-500 rounded text-white py-2 font-semibold px-5">
                                 Login
                             </button>
                         </Link>
                         : <Tooltip
-                            content={user?.name && user?.name}
+                            content={user?.uid && user?.displayName}
                             placement="bottom"
                         >
                             <Dropdown
                                 arrowIcon={false}
                                 inline={true}
-                                label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+                                label={<Avatar alt="User settings"
+                                    img={user?.uid ? user?.photoURL
+                                        : <FaUser />
+                                    } rounded={true} />}
                             >
 
                                 <Dropdown.Header>
