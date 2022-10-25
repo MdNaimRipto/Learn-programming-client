@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import banner from "../../Assets/banner.png"
 
 const Home = () => {
@@ -10,7 +11,9 @@ const Home = () => {
                         <h2 className='text-3xl md:text-4xl mb-4 font-semibold'>Build Skills With Learn Programing</h2>
                         <h2 className='text-3xl md:text-4xl mb-4 font-semibold'>Any Time, Anywhere</h2>
                         <p>We have a large number of courses in Learn Programing. Build your skill and prepare yourself for this advanced growing world with us.</p>
-                        <button className='bg-red-500 py-2 px-4 font-semibold rounded text-white mt-5'>Visit Courses</button>
+                        <Link to="/courses">
+                            <button className='bg-red-500 py-2 px-4 font-semibold rounded text-white mt-5'>Visit Courses</button>
+                        </Link>
                     </div>
                     <div>
                         <img src={banner} alt="" />
