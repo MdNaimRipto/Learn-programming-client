@@ -6,10 +6,18 @@ import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
-    const { googleLogin } = useContext(AuthContext)
+    const { googleLogin, githubLogin } = useContext(AuthContext)
 
     const handleGoogleLogin = () => {
         googleLogin()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
+    const handleGithubLogin = () => {
+        githubLogin()
             .then(result => {
                 const user = result.user
                 console.log(user)
@@ -42,6 +50,7 @@ const Login = () => {
                     <FcGoogle className='mr-2 text-2xl' /> Google
                 </button>
                 <button
+                    onClick={handleGithubLogin}
                     className='boxShadow w-3/6 py-3 mr-2 rounded flex justify-center items-center'>
                     <FaGithub className='mr-2 text-2xl' /> Github
                 </button>

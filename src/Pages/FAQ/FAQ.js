@@ -32,16 +32,6 @@ const FAQ = () => {
                             <p className="mb-2 text-gray-500 dark:text-gray-400">
                                 Although the main activity for both coders and programmers is coding, programmers typically have a more complex set of tasks they need to perform. Coders usually solely write application code in the programming language they are instructed to, whereas programmers also need to create software functions, develop automation logic and solve various problems.
                             </p>
-                            <p className="text-gray-500 dark:text-gray-400">
-                                Check out this guide to learn how to{' '}
-                                <a
-                                    href="https://flowbite.com/docs/getting-started/introduction/"
-                                    className="text-blue-600 hover:underline dark:text-blue-500"
-                                >
-                                    get started
-                                </a>
-                                {' '}and start developing websites even faster with components on top of Tailwind CSS.
-                            </p>
                         </Accordion.Content>
                     </Accordion.Panel>
                     <Accordion.Panel>
@@ -51,16 +41,6 @@ const FAQ = () => {
                         <Accordion.Content>
                             <p className="mb-2 text-gray-500 dark:text-gray-400">
                                 According to the Bureau of Labor Statistics, the job outlook for programmers is likely to decline by 7% from 2018 to 2028. Since computer programming can be performed from anywhere in the world, many companies hire programmers in places where compensation is lower, which may limit job growth for programmers in the United States.
-                            </p>
-                            <p className="text-gray-500 dark:text-gray-400">
-                                Check out the{' '}
-                                <a
-                                    href="https://flowbite.com/figma/"
-                                    className="text-blue-600 hover:underline dark:text-blue-500"
-                                >
-                                    Figma design system
-                                </a>
-                                {' '}based on the utility classes from Tailwind CSS and components from Flowbite.
                             </p>
                         </Accordion.Content>
                     </Accordion.Panel>
