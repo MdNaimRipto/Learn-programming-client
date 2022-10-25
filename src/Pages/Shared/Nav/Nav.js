@@ -24,7 +24,7 @@ const Nav = () => {
                     Flowbite
                 </span>
             </Navbar.Brand>
-            <div className="flex md:order-2">
+            <div className="flex justify-between md:order-2 w-1/4 md:w-12">
                 <Dropdown
                     arrowIcon={false}
                     inline={true}
@@ -56,26 +56,29 @@ const Nav = () => {
             </div>
             <Navbar.Collapse>
                 <Link
-                    className="mb-3"
+                    className="mb-3 md:mb-0"
                     to="/home"
                     active={true}
                 >
                     Home
                 </Link>
-                <Link className="mb-3" to="/courses">
+                <Link className="mb-3 md:mb-0" to="/courses">
                     Courses
                 </Link>
-                <Link className="mb-3" to="/faq">
+                <Link className="mb-3 md:mb-0" to="/faq">
                     FAQ
                 </Link>
-                <Link className="mb-3" to="/blog">
+                <Link className="mb-3 md:mb-0" to="/blog">
                     Blog
                 </Link>
-                <DarkModeToggle
-                    onChange={setIsDarkMode}
-                    checked={isDarkMode}
-                    size={40}
-                />
+                <li className="flex items-center">
+                    <DarkModeToggle
+                        className="mx-auto"
+                        onChange={setIsDarkMode}
+                        checked={isDarkMode}
+                        size={50}
+                    />
+                </li>
             </Navbar.Collapse>
         </Navbar>
 
