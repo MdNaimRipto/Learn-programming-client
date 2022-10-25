@@ -14,7 +14,7 @@ const Nav = () => {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand href="https://flowbite.com/">
+            <Navbar.Brand>
                 <img
                     src={logo}
                     className="mr-3 h-6 sm:h-9"
@@ -24,8 +24,13 @@ const Nav = () => {
                     Learn Programing
                 </span>
             </Navbar.Brand>
-            <div className="flex justify-between md:order-2 w-1/4 md:w-12">
-                <Tooltip
+            <div className="flex justify-between md:order-2 w-1/4 md:w-[12%]">
+                <Link to="/login">
+                    <button className="bg-red-500 rounded text-white py-2 font-semibold px-5">
+                        Login/Register
+                    </button>
+                </Link>
+                {/* <Tooltip
                     content="User Name"
                     placement="bottom"
                 >
@@ -59,10 +64,10 @@ const Nav = () => {
                             Sign out
                         </Dropdown.Item>
                     </Dropdown>
-                </Tooltip>
+                </Tooltip> */}
                 <Navbar.Toggle />
             </div>
-            <Navbar.Collapse>
+            <Navbar.Collapse className="ml-3 md:ml-0">
                 <Link
                     className="mb-3 md:mb-0"
                     to="/home"
@@ -81,14 +86,13 @@ const Nav = () => {
                 </Link>
                 <li className="flex items-center">
                     <DarkModeToggle
-                        className="mx-auto"
                         onChange={setIsDarkMode}
                         checked={isDarkMode}
                         size={50}
                     />
                 </li>
             </Navbar.Collapse>
-        </Navbar >
+        </Navbar>
 
     );
 };

@@ -5,6 +5,7 @@ const header = () => {
     return (
         <div>
             <Nav></Nav>
+            <hr className='container mx-auto' />
         </div>
     );
 };
