@@ -5,7 +5,11 @@ import { FaGithub } from "react-icons/fa"
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { googleLogin, githubLogin, createAccountWithEmailAndPassword } = useContext(AuthContext)
+    const { googleLogin,
+        githubLogin,
+        createAccountWithEmailAndPassword,
+        updateUserProfile
+    } = useContext(AuthContext)
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -13,13 +17,22 @@ const Register = () => {
         const name = form.name.value
         const email = form.email.value
         const password = form.password.value
+        const photoURL = form.photoUrl.value
         createAccountWithEmailAndPassword(email, password)
             .then(result => {
                 const user = result.user
                 console.log(user)
                 form.reset()
+                handleProfileUpdate(name, photoURL)
             })
             .catch(error => console.error(error))
+    }
+    const handleProfileUpdate = (name, photoUrl) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoUrl
+        }
+        updateUserProfile(profile)
     }
     const handleGoogleLogin = () => {
         googleLogin()
@@ -63,7 +76,7 @@ const Register = () => {
                 <h4 className='mb-2  text-base'>Photo URL</h4>
                 <input
                     className='w-full mb-8 boxShadow border-0 rounded'
-                    type="text" name='photoURL' placeholder='Enter Your Photo URL' />
+                    type="text" name='photoUrl' placeholder='Enter Your Photo URL' />
 
                 <button className='w-full mb-5 bg-red-500 rounded text-white py-2 '>Register</button>
                 <p className='text-center'>

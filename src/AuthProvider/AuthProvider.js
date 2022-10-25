@@ -6,7 +6,8 @@ import {
     GithubAuthProvider,
     GoogleAuthProvider,
     signInWithEmailAndPassword,
-    signInWithPopup
+    signInWithPopup,
+    updateProfile
 } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 
@@ -34,12 +35,16 @@ const AuthProvider = ({ children }) => {
     const githubLogin = () => {
         return signInWithPopup(auth, githubProvider)
     }
+    const updateUserProfile = (profile) => {
+        return updateProfile(auth.currentUser, profile)
+    }
     const authInfo = {
         user,
         googleLogin,
         githubLogin,
         createAccountWithEmailAndPassword,
-        loginWithEmailAndPassword
+        loginWithEmailAndPassword,
+        updateUserProfile
     }
 
     return (
