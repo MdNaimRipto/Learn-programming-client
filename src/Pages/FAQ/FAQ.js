@@ -10,8 +10,8 @@ const FAQ = () => {
                 <div className='container mx-auto w-[85%] mt-5 py-20'>
                     <div className='flex flex-col md:flex-row justify-between items-center'>
                         <div className='py-12 text-center md:text-left'>
-                            <h2 className='text-3xl md:text-4xl mb-4 font-semibold'>Common Faq's About Programing</h2>
-                            <p>Every beginner who want's to start programing have a lot's of question's in there head. So we tried to cover some common question about programing into the below section.</p>
+                            <h2 className='text-3xl md:text-4xl mb-4 font-semibold'>Common Faq's About Programming</h2>
+                            <p>Every beginner who want's to start programming have a lot's of question's in there head. So we tried to cover some common question about programming into the below section.</p>
                             <Link to="/home">
                                 <button className='bg-red-500 py-2 px-4 font-semibold rounded text-white mt-5'>Return to Home</button>
                             </Link>
