@@ -8,6 +8,7 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signInWithPopup,
+    signOut,
     updateProfile
 } from "firebase/auth";
 import { getAuth } from "firebase/auth";
@@ -41,6 +42,9 @@ const AuthProvider = ({ children }) => {
     const updateUserProfile = (profile) => {
         return updateProfile(auth.currentUser, profile)
     }
+    const logOut = () => {
+        return signOut(auth)
+    }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log(currentUser)
@@ -54,7 +58,8 @@ const AuthProvider = ({ children }) => {
         githubLogin,
         createAccountWithEmailAndPassword,
         loginWithEmailAndPassword,
-        updateUserProfile
+        updateUserProfile,
+        logOut
     }
 
     return (

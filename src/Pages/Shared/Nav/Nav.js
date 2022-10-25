@@ -9,9 +9,17 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider"
 
 const Nav = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const [isDarkMode, setIsDarkMode] = useState(() => false);
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                console.log("User Signed out")
+            })
+            .catch(error => console.error(error))
+    }
 
     return (
 
@@ -39,7 +47,7 @@ const Nav = () => {
                             </button>
                         </Link>
                         : <Tooltip
-                            content={user?.uid && user?.displayName}
+                            content={user?.uid ? user?.displayName : "No Name Found"}
                             placement="bottom"
                         >
                             <Dropdown
@@ -53,10 +61,10 @@ const Nav = () => {
 
                                 <Dropdown.Header>
                                     <span className="block text-sm">
-                                        Bonnie Green
+                                        {user?.uid && user?.displayName}
                                     </span>
                                     <span className="block truncate text-sm font-medium">
-                                        name@flowbite.com
+                                        {user?.uid && user?.email}
                                     </span>
                                 </Dropdown.Header>
 
@@ -72,7 +80,7 @@ const Nav = () => {
                                 </Dropdown.Item>
                                 <Dropdown.Divider />
                                 <Dropdown.Item>
-                                    Sign out
+                                    <span onClick={handleLogout}>Sign out</span>
                                 </Dropdown.Item>
                             </Dropdown>
                         </Tooltip>
