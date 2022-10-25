@@ -24,10 +24,10 @@ const Nav = () => {
                     Learn Programing
                 </span>
             </Navbar.Brand>
-            <div className="flex justify-between md:order-2 w-1/4 md:w-[12%]">
+            <div className="flex justify-between md:order-2 w-2/6 md:w-[12%]">
                 <Link to="/login">
                     <button className="bg-red-500 rounded text-white py-2 font-semibold px-5">
-                        Login/Register
+                        Login
                     </button>
                 </Link>
                 {/* <Tooltip
