@@ -10,7 +10,6 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider"
 const Nav = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user.displayName)
 
     const [isDarkMode, setIsDarkMode] = useState(() => false);
 

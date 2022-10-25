@@ -6,7 +6,21 @@ import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
-    const { googleLogin, githubLogin } = useContext(AuthContext)
+    const { googleLogin, githubLogin, loginWithEmailAndPassword } = useContext(AuthContext)
+
+    const handleLoginWithEmailAndPassword = (event) => {
+        event.preventDefault()
+        const form = event.target
+        const email = form.email.value
+        const password = form.password.value
+        loginWithEmailAndPassword(email, password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                form.reset()
+            })
+            .catch(error => console.error(error))
+    }
 
     const handleGoogleLogin = () => {
         googleLogin()
@@ -25,7 +39,9 @@ const Login = () => {
             .catch(error => console.error(error))
     }
     return (
-        <form className='w-11/12 md:w-[30%] mx-auto px-6 py-5 boxShadow my-12 rounded font-semibold'>
+        <form
+            onSubmit={handleLoginWithEmailAndPassword}
+            className='w-11/12 md:w-[30%] mx-auto px-6 py-5 boxShadow my-12 rounded font-semibold'>
             <h2 className='text-center  text-3xl mb-5'>Please Login</h2>
             <h4 className='mb-2  text-base'>Email Address</h4>
             <input

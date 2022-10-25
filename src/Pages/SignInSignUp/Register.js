@@ -5,8 +5,22 @@ import { FaGithub } from "react-icons/fa"
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { googleLogin, githubLogin } = useContext(AuthContext)
+    const { googleLogin, githubLogin, createAccountWithEmailAndPassword } = useContext(AuthContext)
 
+    const handleRegister = (event) => {
+        event.preventDefault()
+        const form = event.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        createAccountWithEmailAndPassword(email, password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                form.reset()
+            })
+            .catch(error => console.error(error))
+    }
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
@@ -25,7 +39,9 @@ const Register = () => {
     }
     return (
         <div>
-            <form className='w-11/12 md:w-1/3 mx-auto px-6 py-6 boxShadow my-12 rounded font-semibold'>
+            <form
+                onSubmit={handleRegister}
+                className='w-11/12 md:w-1/3 mx-auto px-6 py-6 boxShadow my-12 rounded font-semibold'>
 
                 <h2 className='text-center  text-3xl mb-8'>Please Register</h2>
 
@@ -49,7 +65,7 @@ const Register = () => {
                     className='w-full mb-8 boxShadow border-0 rounded'
                     type="text" name='photoURL' placeholder='Enter Your Photo URL' />
 
-                <button className='w-full mb-5 bg-red-500 rounded text-white py-2 '>Login</button>
+                <button className='w-full mb-5 bg-red-500 rounded text-white py-2 '>Register</button>
                 <p className='text-center'>
                     <small>
                         Already Have an Account?
