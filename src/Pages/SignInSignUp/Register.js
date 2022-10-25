@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
+    const { googleLogin } = useContext(AuthContext)
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
     return (
         <div>
             <form className='w-11/12 md:w-1/3 mx-auto px-6 py-6 boxShadow my-12 rounded font-semibold'>
@@ -40,6 +51,7 @@ const Register = () => {
                 <p className='horizontal-line mt-2'>Or</p>
                 <div className='flex justify-evenly items-center my-6'>
                     <button
+                        onClick={handleGoogleLogin}
                         className='boxShadow w-3/6 py-3 mr-2 rounded flex justify-center items-center'>
                         <FcGoogle className='mr-2 text-2xl' /> Google
                     </button>

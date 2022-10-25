@@ -10,7 +10,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider"
 const Nav = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user.name)
+    console.log(user.displayName)
 
     const [isDarkMode, setIsDarkMode] = useState(() => false);
 
@@ -40,7 +40,7 @@ const Nav = () => {
                             </button>
                         </Link>
                         : <Tooltip
-                            content="User Name"
+                            content={user?.name && user?.name}
                             placement="bottom"
                         >
                             <Dropdown
