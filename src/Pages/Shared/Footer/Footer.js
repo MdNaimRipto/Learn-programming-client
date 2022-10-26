@@ -26,7 +26,7 @@ const Footer = () => {
                     className='mx-2 text-lg hover:text-red-500'><FaGithub />
                 </a>
             </div>
-            <div className='bg-gray-300 py-5 text-center'>
+            <div className='bg-gray-300 py-8 text-center font-semibold'>
                 <p>© 2022 Copyright: Learn Programming</p>
             </div>
         </div>

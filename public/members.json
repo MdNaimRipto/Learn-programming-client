@@ -1,56 +1,56 @@
 [
     {
         "id": 1,
-        "img": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+        "img": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "name": "Oliver Aguilerra",
         "profession": "Product Manager",
         "study": "Massachusetts Institute of Technology."
     },
     {
         "id": 2,
-        "img": "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260",
+        "img": "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "name": "Marta Clermont",
         "profession": "Design Team Lead",
         "study": "Harvard University."
     },
     {
         "id": 3,
-        "img": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260",
+        "img": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "name": "Anthony Geek",
         "profession": "CTO, Learning Programming.",
         "study": "Stanford University."
     },
     {
         "id": 4,
-        "img": "https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260",
+        "img": "https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "name": "Alice Melbourne",
         "profession": "Full-Stack Developer",
         "study": "Yale University."
     },
     {
         "id": 5,
-        "img": "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500",
+        "img": "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "name": "Martin Garix",
         "profession": "Software Application Developer",
         "study": "California Institute of Technology."
     },
     {
         "id": 6,
-        "img": "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260",
+        "img": "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "name": "Andrew Larkin",
         "profession": "Backend Developer",
         "study": "Johns Hopkins University."
     },
     {
         "id": 7,
-        "img": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+        "img": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "name": "Sophie Denmo",
         "profession": "Web Designer",
         "study": "University of Pennsylvania."
     },
     {
         "id": 8,
-        "img": "https://images.pexels.com/photos/3931553/pexels-photo-3931553.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260",
+        "img": "https://images.pexels.com/photos/3931553/pexels-photo-3931553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "name": "Benedict Caro",
         "profession": "Frontend Developer",
         "study": "California Institute of Technology."

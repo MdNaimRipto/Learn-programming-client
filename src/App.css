@@ -22,3 +22,14 @@
 .horizontal-line:after {
     margin-left: 10px
 }
+
+.gridCard {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+@media screen and (max-width:576px) {
+    .gridCard {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

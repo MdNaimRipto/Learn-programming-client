@@ -53,7 +53,7 @@ const Nav = () => {
                             <Dropdown
                                 arrowIcon={false}
                                 inline={true}
-                                label={<Avatar alt="User settings"
+                                label={<Avatar
                                     img={user?.uid ? user?.photoURL
                                         : <FaUser />
                                     } rounded={true}
@@ -72,7 +72,7 @@ const Nav = () => {
 
 
                                 <Dropdown.Item>
-                                    Dashboard
+                                    <Link to="/profile">Profile</Link>
                                 </Dropdown.Item>
                                 <Dropdown.Item>
                                     Settings
