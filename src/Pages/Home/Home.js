@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import banner from "../../Assets/banner.png"
-import Loader from '../Shared/Loader/Loader';
 import { Team } from '../Team/Team';
 
 const Home = () => {
@@ -32,3 +31,4 @@ const Home = () => {
 };
 
 export default Home;
+
