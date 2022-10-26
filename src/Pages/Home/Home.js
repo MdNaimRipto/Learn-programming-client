@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import banner from "../../Assets/banner.png"
-import { Team } from '../Team/Team';
+import Instructor from '../Instructor/Instructor';
+import Team from '../../Pages/Team/Team';
 
 const Home = () => {
     return (
@@ -25,6 +26,9 @@ const Home = () => {
             </div>
             <div>
                 <Team></Team>
+            </div>
+            <div>
+                <Instructor></Instructor>
             </div>
         </div>
     );
