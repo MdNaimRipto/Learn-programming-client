@@ -1,15 +1,20 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
+
+    const [error, setError] = useState("")
+
+
     const { googleLogin,
         githubLogin,
         createAccountWithEmailAndPassword,
         updateUserProfile
     } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -23,9 +28,13 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
+                navigate("/")
                 handleProfileUpdate(name, photoURL)
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
     const handleProfileUpdate = (name, photoUrl) => {
         const profile = {
@@ -39,16 +48,24 @@ const Register = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate("/")
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
     const handleGithubLogin = () => {
         githubLogin()
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate("/")
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
     return (
         <div>
@@ -79,6 +96,7 @@ const Register = () => {
                     type="text" name='photoUrl' placeholder='Enter Your Photo URL' />
 
                 <button className='w-full mb-5 bg-red-500 rounded text-white py-2 '>Register</button>
+                <p className='text-red-800 text-center'><small>{error}</small></p>
                 <p className='text-center'>
                     <small>
                         Already Have an Account?

@@ -56,7 +56,9 @@ const Nav = () => {
                                 label={<Avatar alt="User settings"
                                     img={user?.uid ? user?.photoURL
                                         : <FaUser />
-                                    } rounded={true} />}
+                                    } rounded={true}
+                                    status="online"
+                                />}
                             >
 
                                 <Dropdown.Header>

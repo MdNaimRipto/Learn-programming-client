@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState("")
     const { googleLogin, githubLogin, loginWithEmailAndPassword } = useContext(AuthContext)
     const navigate = useNavigate()
 
@@ -21,7 +22,10 @@ const Login = () => {
                 form.reset()
                 navigate("/")
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
 
     const handleGoogleLogin = () => {
@@ -31,7 +35,10 @@ const Login = () => {
                 console.log(user)
                 navigate("/")
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
     const handleGithubLogin = () => {
         githubLogin()
@@ -40,7 +47,10 @@ const Login = () => {
                 console.log(user)
                 navigate("/")
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
     return (
         <form
@@ -56,6 +66,7 @@ const Login = () => {
                 className='w-full mb-8 boxShadow border-0 rounded'
                 type="password" name='password' placeholder='Enter Your Password' required />
             <button className='w-full mb-5 bg-red-500 rounded text-white py-2 '>Login</button>
+            <p className='text-red-800 text-center'><small>{error}</small></p>
             <p className='text-center'>
                 <small>
                     Don't Have an Account?
