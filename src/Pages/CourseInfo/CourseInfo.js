@@ -21,8 +21,8 @@ const CourseInfo = () => {
                         alt=""
                     />
                 </div>
-                <div className="flex flex-col justify-center" ref={ref}>
-                    <div className="max-w-xl mb-6">
+                <div className="flex flex-col justify-center">
+                    <div className="max-w-xl mb-6" ref={ref}>
                         <div className='flex justify-between items-center'>
                             <h2 className="max-w-lg mt-4 mb-3 font-sans text-xl md:text-3xl font-bold tracking-tight text-gray-900 sm:leading-none">
                                 {courseName}
