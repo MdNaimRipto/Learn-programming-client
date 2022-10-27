@@ -4,8 +4,11 @@ import Learning from '../ExtraInfo/Learning';
 import Skill from '../ExtraInfo/Skill';
 import { FaStar } from "react-icons/fa"
 import { FiDownload } from 'react-icons/fi';
+import ReactToPdf from "react-to-pdf"
 
 const CourseInfo = () => {
+    const ref = React.createRef();
+
     const courseInfo = useLoaderData()
     const { id, img, rating, courseName, aboutCourse, learnings, skills, price } = courseInfo
     return (
@@ -18,18 +21,21 @@ const CourseInfo = () => {
                         alt=""
                     />
                 </div>
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-col justify-center" ref={ref}>
                     <div className="max-w-xl mb-6">
                         <div className='flex justify-between items-center'>
                             <h2 className="max-w-lg mt-4 mb-3 font-sans text-xl md:text-3xl font-bold tracking-tight text-gray-900 sm:leading-none">
                                 {courseName}
                             </h2>
-                            <Link to={``}>
-                                <button
-                                    className='px-3 p-[10px] text-red-500 text-sm rounded   border border-2 border-current transition'>
-                                    <FiDownload />
-                                </button>
-                            </Link>
+                            <div>
+                                <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+                                    {({ toPdf }) => (
+                                        <button
+                                            className='px-3 p-[10px] text-red-500 text-sm rounded   border border-2 border-current transition'
+                                            onClick={toPdf}><FiDownload /></button>
+                                    )}
+                                </ReactToPdf>
+                            </div>
                         </div>
                         <p className='flex items-center mb-3'>
                             <span>Rating:</span>
