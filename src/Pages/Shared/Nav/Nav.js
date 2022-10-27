@@ -57,6 +57,7 @@ const Nav = () => {
                                     img={user?.uid ? user?.photoURL
                                         : <FaUser />
                                     } rounded={true}
+                                    runat="server"
                                     status="online"
                                 />}
                             >

@@ -10,6 +10,7 @@ import Secondary from "../Layout/Secondary"
 import Blog from "../Pages/Blog/Blog"
 import CourseInfo from "../Pages/CourseInfo/CourseInfo"
 import Checkout from "../Pages/Checkout/Checkout"
+import PrivateRoute from "./PrivateRoute"
 
 export const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/checkout/:id",
-                element: <Checkout></Checkout>,
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: async ({ params }) => {
                     return fetch(`http://localhost:5000/course/${params.id}`)
                 }

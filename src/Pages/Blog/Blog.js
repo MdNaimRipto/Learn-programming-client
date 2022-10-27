@@ -1,6 +1,5 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import blogImage from "../../Assets/blog.jpg"
 
 const Blog = () => {

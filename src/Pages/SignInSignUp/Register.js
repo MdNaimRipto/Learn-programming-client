@@ -1,20 +1,23 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Register = () => {
-
     const [error, setError] = useState("")
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/"
 
 
     const { googleLogin,
         githubLogin,
         createAccountWithEmailAndPassword,
-        updateUserProfile
+        updateUserProfile,
+        setUser
     } = useContext(AuthContext)
-    const navigate = useNavigate()
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -28,12 +31,31 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
-                navigate("/")
                 handleProfileUpdate(name, photoURL)
+                toast.success("Registration Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+                navigate(from, { replace: true })
+                setUser(result.user)
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message)
+                toast.error(`${error.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
     }
     const handleProfileUpdate = (name, photoUrl) => {
@@ -43,28 +65,64 @@ const Register = () => {
         }
         updateUserProfile(profile)
     }
-    const handleGoogleLogin = () => {
+    const handleGoogleSignup = () => {
         googleLogin()
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate("/")
+                toast.success("Registration Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message)
+                toast.error(`${error.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
     }
-    const handleGithubLogin = () => {
+    const handleGithubSignup = () => {
         githubLogin()
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate("/")
+                toast.success("Registration Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message)
+                toast.error(`${error.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
     }
     return (
@@ -106,12 +164,12 @@ const Register = () => {
                 <p className='horizontal-line mt-2'>Or</p>
                 <div className='flex justify-evenly items-center my-6'>
                     <button
-                        onClick={handleGoogleLogin}
+                        onClick={handleGoogleSignup}
                         className='boxShadow w-3/6 py-3 mr-2 rounded flex justify-center items-center'>
                         <FcGoogle className='mr-2 text-2xl' /> Google
                     </button>
                     <button
-                        onClick={handleGithubLogin}
+                        onClick={handleGithubSignup}
                         className='boxShadow w-3/6 py-3 mr-2 rounded flex justify-center items-center'>
                         <FaGithub className='mr-2 text-2xl' /> Github
                     </button>

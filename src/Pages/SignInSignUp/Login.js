@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const [error, setError] = useState("")
-    const { googleLogin, githubLogin, loginWithEmailAndPassword } = useContext(AuthContext)
+    const { googleLogin, githubLogin, loginWithEmailAndPassword, setUser } = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/"
 
     const handleLoginWithEmailAndPassword = (event) => {
         event.preventDefault()
@@ -18,13 +21,32 @@ const Login = () => {
         loginWithEmailAndPassword(email, password)
             .then(result => {
                 const user = result.user
+                setUser(result.user)
                 console.log(user)
                 form.reset()
-                navigate("/")
+                toast.success("Login Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message)
+                toast.error(`${error.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
     }
 
@@ -33,11 +55,29 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate("/")
+                toast.success("Login Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message)
+                toast.error(`${error.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
     }
     const handleGithubLogin = () => {
@@ -45,11 +85,29 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate("/")
+                toast.success("Login Successful", {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message)
+                toast.error(`${error.message}. Please Try Again`, {
+                    duration: 2000,
+                    style: {
+                        border: '1px solid #80808082',
+                        boxShadow: "none",
+                        width: "350px",
+                        borderRadius: "10px"
+                    },
+                })
             })
     }
     return (
