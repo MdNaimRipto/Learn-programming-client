@@ -1,12 +1,13 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Learning from '../ExtraInfo/Learning';
 import Skill from '../ExtraInfo/Skill';
 import { FaStar } from "react-icons/fa"
+import { FiDownload } from 'react-icons/fi';
 
 const CourseInfo = () => {
     const courseInfo = useLoaderData()
-    const { img, rating, courseName, aboutCourse, learnings, skills } = courseInfo
+    const { id, img, rating, courseName, aboutCourse, learnings, skills, price } = courseInfo
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="gridCard">
@@ -19,14 +20,24 @@ const CourseInfo = () => {
                 </div>
                 <div className="flex flex-col justify-center">
                     <div className="max-w-xl mb-6">
-                        <h2 className="max-w-lg mt-4 mb-4 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:leading-none">
-                            {courseName}
-
-                        </h2>
-                        <p className='flex items-center mb-5'>
+                        <div className='flex justify-between items-center'>
+                            <h2 className="max-w-lg mt-4 mb-3 font-sans text-xl md:text-3xl font-bold tracking-tight text-gray-900 sm:leading-none">
+                                {courseName}
+                            </h2>
+                            <Link to={``}>
+                                <button
+                                    className='px-3 p-[10px] text-red-500 text-sm rounded   border border-2 border-current transition'>
+                                    <FiDownload />
+                                </button>
+                            </Link>
+                        </div>
+                        <p className='flex items-center mb-3'>
                             <span>Rating:</span>
                             <FaStar className='mx-2 text-yellow-300' />
                             <span>{rating}/5</span>
+                        </p>
+                        <p className='mb-4'>
+                            Price: <span className='font-semibold'>${price}</span>
                         </p>
                         <p className="text-base text-gray-700n text-justify md:text-lg">
                             <small>{aboutCourse}</small>
@@ -56,8 +67,13 @@ const CourseInfo = () => {
                             }
                         </ul>
                     </div>
+                    <Link className='mt-5 mx-auto md:mx-0' to={`/checkout/${id}`}>
+                        <button
+                            className='py-3 px-3 bg-red-500  text-white text-lg rounded border border-current hover:bg-white hover:text-red-500 transition'>
+                            Get Premium Access
+                        </button>
+                    </Link>
                 </div>
-
             </div>
         </div>
     );

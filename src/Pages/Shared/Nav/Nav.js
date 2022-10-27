@@ -72,7 +72,7 @@ const Nav = () => {
 
 
                                 <Dropdown.Item>
-                                    <Link to="/profile">Profile</Link>
+                                    Profile
                                 </Dropdown.Item>
                                 <Dropdown.Item>
                                     Settings

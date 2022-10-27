@@ -9,6 +9,7 @@ import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage"
 import Secondary from "../Layout/Secondary"
 import Blog from "../Pages/Blog/Blog"
 import CourseInfo from "../Pages/CourseInfo/CourseInfo"
+import Checkout from "../Pages/Checkout/Checkout"
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,13 @@ export const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>,
             },
+            {
+                path: "/checkout/:id",
+                element: <Checkout></Checkout>,
+                loader: async ({ params }) => {
+                    return fetch(`http://localhost:5000/course/${params.id}`)
+                }
+            }
         ]
     },
     {
