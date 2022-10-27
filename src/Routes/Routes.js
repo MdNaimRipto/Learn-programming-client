@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
                 path: "/checkout/:id",
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://learn-programming-server-three.vercel.app/course/${params.id}`)
                 }
             }
         ]
@@ -59,14 +59,14 @@ export const router = createBrowserRouter([
                 path: "/courses",
                 element: <Courses></Courses>,
                 loader: async () => {
-                    return fetch("http://localhost:5000/courses")
+                    return fetch("https://learn-programming-server-three.vercel.app/courses")
                 }
             },
             {
                 path: "/course/:id",
                 element: <CourseInfo></CourseInfo>,
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://learn-programming-server-three.vercel.app/course/${params.id}`)
                 }
             }
         ]
