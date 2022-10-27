@@ -133,7 +133,7 @@ const Register = () => {
 
                 <h2 className='text-center  text-3xl mb-8'>Please Register</h2>
 
-                <h4 className='mb-2  text-base'>Name</h4>
+                <h4 className='mb-2  text-base'>Full Name</h4>
                 <input
                     className='w-full mb-5 py-2 pl-2 boxShadow border-0 rounded'
                     type="name" name='name' placeholder='Enter Your Full Name' required />
